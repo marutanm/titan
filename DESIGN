@@ -1,0 +1,60 @@
+DESIGN
+======
+
+[ 機能　]
+-------------------------------------------------------------------------------
+* ユーザーによるつぶやき
+* ユーザーによるお気に入りの登録
+* ユーザープロフィールの登録
+* ユーザーアイコンの登録
+* ユーザーの発言の <censored>　フィルタ
+* 特定のURLの自動リンク付与
+* 特定のURLの画像展開
+* リアルタイムストリーミングAPI
+
+[ URL ]
+-------------------------------------------------------------------------------
+/                           : 全てのユーザーのタイムライン
+/{user}                     : {user}のタイムライン
+/{user}/status/{sid}        : {user}の{sid}ステータス
+/{user}/profile             : {user}のプロフィール
+/settings                   : ユーザーの設定
+/post                       : ステータスの登録
+/fav                        : お気に入りの登録
+
+/api/timeline               : 全てのユーザーのタイムラインAPI
+/api/{user}                 : {user}のタイムラインAPI
+/api/{user}/status/{sid}    : {user}の{sid}ステータスAPI
+/api/{user}/profile         : {user}のプロフィールAPI
+/api/post                   : ステータスの登録
+/api/fav                    : お気に入りの登録
+/api/stream                 : 全てのユーザーのストリーミングAPI
+/api/stream/{user}          : {user}のストリーミングAPI
+
+[ データモデル ]
+-------------------------------------------------------------------------------
+<status>　- ユーザーステータスデータモデル
+{
+    sid:        (integer),
+    user:       (string),
+    message:    (string),
+    date:       (unix time),
+    fav:        [(string)]
+}
+
+<user> - ユーザー情報データモデル
+{
+    id:         (string),
+    nickname:   (string),
+    bio:        (string),
+    image:      (url)
+}
+
+[ ミドルウェア ]
+-------------------------------------------------------------------------------
+* Node.js   - http://nodejs.org/
+* Express   - http://expressjs.com/
+* Socket.IO - http://socket.io/
+* EJS       - http://embeddedjs.com/
+* Mongoose  - http://labs.learnboost.com/mongoose/
+* MongoDB   - http://www.mongodb.org/
