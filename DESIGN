@@ -1,5 +1,6 @@
-DESIGN
-======
+DESIGN　OF TITAN
+===============
+
 
 [ 機能　]
 -------------------------------------------------------------------------------
@@ -11,6 +12,7 @@ DESIGN
 * 特定のURLの自動リンク付与
 * 特定のURLの画像展開
 * リアルタイムストリーミングAPI
+
 
 [ URL ]
 -------------------------------------------------------------------------------
@@ -31,15 +33,21 @@ DESIGN
 /api/stream                 : 全てのユーザーのストリーミングAPI
 /api/stream/{user}          : {user}のストリーミングAPI
 
+
 [ データモデル ]
 -------------------------------------------------------------------------------
 <status>　- ユーザーステータスデータモデル
 {
-    sid:        (integer),
-    user:       (string),
+    id:         (integer),
+    user_id:    (string),
     message:    (string),
     date:       (unix time),
-    fav:        [(string)]
+    fav:        [
+        {
+            user_id:    (string),
+            date:       (unix time)
+        }
+    ]
 }
 
 <user> - ユーザー情報データモデル
@@ -50,6 +58,25 @@ DESIGN
     image:      (url)
 }
 
+
+[ クラス ]
+-------------------------------------------------------------------------------
+Titan               : 名前空間 / インターフェース
+Titan.Controller    : ページコントローラー
+Titan.API           : APIコントローラー
+Titan.Storage       : データストレージ
+
+
+[ ファイル構成 ]
+-------------------------------------------------------------------------------
+- titan/
+  - app.js          : アプリケーションスクリプト
+  - lib/            : ライブラリディレクトリ
+    - titan.js      : Titanライブラリスクリプト
+  - test/           : テストディレクトリ
+  - docs/           : ドキュメントディレクトリ
+
+
 [ ミドルウェア ]
 -------------------------------------------------------------------------------
 * Node.js   - http://nodejs.org/
@@ -58,3 +85,4 @@ DESIGN
 * EJS       - http://embeddedjs.com/
 * Mongoose  - http://labs.learnboost.com/mongoose/
 * MongoDB   - http://www.mongodb.org/
+* Expresso  - http://visionmedia.github.com/expresso/
