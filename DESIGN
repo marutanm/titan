@@ -1,4 +1,4 @@
-DESIGN　OF TITAN
+DESIGN OF TITAN
 ===============
 
 
@@ -20,8 +20,9 @@ DESIGN　OF TITAN
 /{user}                     : {user}のタイムライン
 /{user}/status/{sid}        : {user}の{sid}ステータス
 /{user}/profile             : {user}のプロフィール
-/settings                   : ユーザーの設定
-/post                       : ステータスの登録
+/settings                   : ユーザー設定
+/settings/save              : ユーザー設定の保存
+/update                     : ステータスの登録
 /fav                        : お気に入りの登録
 
 /api/timeline               : 全てのユーザーのタイムラインAPI
