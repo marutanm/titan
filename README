@@ -4,5 +4,5 @@ Titan - Yhttr v4.
 $ npm install express
 $ npm install socket.io
 $ npm install ejs
-$ npm install mongoose
+$ npm install mongodb
 $ npm install expresso

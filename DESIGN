@@ -1,7 +1,6 @@
 DESIGN OF TITAN
 ===============
 
-
 [ 機能　]
 -------------------------------------------------------------------------------
 * ユーザーによるつぶやき
@@ -29,7 +28,7 @@ DESIGN OF TITAN
 /api/{user}                 : {user}のタイムラインAPI
 /api/{user}/status/{sid}    : {user}の{sid}ステータスAPI
 /api/{user}/profile         : {user}のプロフィールAPI
-/api/post                   : ステータスの登録
+/api/update                 : ステータスの登録
 /api/fav                    : お気に入りの登録
 /api/stream                 : 全てのユーザーのストリーミングAPI
 /api/stream/{user}          : {user}のストリーミングAPI
@@ -76,14 +75,18 @@ Titan.Storage       : データストレージ
     - titan.js      : Titanライブラリスクリプト
   - test/           : テストディレクトリ
   - docs/           : ドキュメントディレクトリ
+  - views/          : テンプレートディレクトリ
+  - static/         : 静的ファイルディレクトリ
+  - logs/           : ログディレクトリ
+  - config/         : 設定ファイルディレクトリ
 
 
 [ ミドルウェア ]
 -------------------------------------------------------------------------------
-* Node.js   - http://nodejs.org/
-* Express   - http://expressjs.com/
-* Socket.IO - http://socket.io/
-* EJS       - http://embeddedjs.com/
-* Mongoose  - http://labs.learnboost.com/mongoose/
-* MongoDB   - http://www.mongodb.org/
-* Expresso  - http://visionmedia.github.com/expresso/
+* Node.js               - http://nodejs.org/
+* Express               - http://expressjs.com/
+* Socket.IO             - http://socket.io/
+* EJS                   - http://embeddedjs.com/
+* node-mongodb-native   - https://github.com/christkv/node-mongodb-native
+* MongoDB               - http://www.mongodb.org/
+* Expresso              - http://visionmedia.github.com/expresso/
